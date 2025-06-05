@@ -17,7 +17,7 @@ namespace CryptoTracker.Service
         {
             _client = new HttpClient();
             _client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (CryptoTrackerApp)");
-            _client.DefaultRequestHeaders.Add("x-cg-demo-api-key", "CG-PRH4teRLiMPyxars9WLN1jyW");
+            _client.DefaultRequestHeaders.Add("x-cg-demo-api-key", "CG-----");
         }
 
         public async Task<List<Coin>> GetTopCoinsAsync()
