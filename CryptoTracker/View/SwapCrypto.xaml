@@ -1,0 +1,83 @@
+﻿<Window x:Class="CryptoTracker.View.SwapCrypto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CryptoTracker.View"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="SwapCrypto" Height="430" Width="500">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Pôvodná kryptomena -->
+        <GroupBox Header="Z kryptomeny" FontWeight="Bold" Grid.Row="0">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Názov:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding FromCoin.Name}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"/>
+
+                <TextBlock Text="Počet:" Grid.Row="1" Grid.Column="0" Margin="0,10,0,0" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding FromAmount, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="PreviewTextInput_" Grid.Row="1" Grid.Column="1" Margin="0,10,0,0" />
+
+                <TextBlock Text="Cena za jeden:" Grid.Row="2" Grid.Column="0" Margin="0,10,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding FromCoinPrice, StringFormat=N8}" Grid.Row="2" Grid.Column="1" Margin="0,10,0,0" VerticalAlignment="Center"/>
+                
+                <TextBlock Text="Celková cena:" Grid.Row="3" Grid.Column="0" Margin="0,10,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding FromCoinTotal, StringFormat=N8}" Grid.Row="3" Grid.Column="1" Margin="0,10,0,0" VerticalAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Cieľová kryptomena -->
+        <GroupBox Header="Na kryptomenu" FontWeight="Bold" Grid.Row="1" Margin="0,20,0,0">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Vybrať:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding FilteredCoins}"
+                          SelectedItem="{Binding ToCoin, Mode=TwoWay}"
+                          DisplayMemberPath="Name"
+                          Grid.Row="0" Grid.Column="1"/>
+
+                <TextBlock Text="Počet:" Grid.Row="1" Grid.Column="0" Margin="0,10,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding ToAmount, StringFormat=N8}" Grid.Row="1" Grid.Column="1" Margin="0,10,0,0" VerticalAlignment="Center"/>
+
+                <TextBlock Text="Cena za jeden:" Grid.Row="2" Grid.Column="0" Margin="0,10,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding ToCoinPrice, StringFormat=N8}" Grid.Row="2" Grid.Column="1" Margin="0,10,0,0" VerticalAlignment="Center"/>
+
+                <TextBlock Text="Celková cena:" Grid.Row="3" Grid.Column="0" Margin="0,10,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding ToCoinTotal, StringFormat=N8}" Grid.Row="3" Grid.Column="1" Margin="0,10,0,0" VerticalAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Tlačidlá -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Content="Potvrdiť" Width="100" Margin="0,0,10,0" IsDefault="True" Click="Confirm_Click"/>
+            <Button Content="Zrušiť" Width="100" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>

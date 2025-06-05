@@ -1,0 +1,34 @@
+﻿<Window x:Class="CryptoTracker.View.AddCrypto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        Title="Pridať kryptomenu" Height="310" Width="400" >
+
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/> 
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/> 
+            <RowDefinition Height="Auto"/> 
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Názov kryptomeny:" Grid.Row="0"/>
+        <TextBox Text="{Binding Coin.Name}" IsReadOnly="True" Margin="0 20 0 10" Grid.Row="0"/>
+
+        <TextBlock Text="Množstvo:" Grid.Row="1"/>
+        <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="PreviewTextInput_" Grid.Row="1" Margin="0 20 0 10"/>
+
+        <TextBlock Text="Cena nákupu za 1ks:" Grid.Row="2"/>
+        <TextBox Text="{Binding Coin.Price, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="2" Margin="0 20 0 10"/>
+
+        <TextBlock Text="Celková hodnota:" Grid.Row="3"/>
+        <TextBox  x:Name="TotalBox" Grid.Row="3" Margin="0 20 0 10" IsReadOnly="True"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center" Margin="0 10 0 0">
+            <Button Content="Zrušiť" Width="80" Margin="0 0 10 0" Click="Cancel_Click"/>
+            <Button Content="Uložiť" Width="80" Click="Save_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

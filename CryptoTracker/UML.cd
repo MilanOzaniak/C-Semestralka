@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+  <Class Name="CryptoTracker.Model.Coin" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="4.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AABDEAAAAQQAAAAAIAAAAEQCgAQAABAQAAAAAAAACCA=</HashCode>
+      <FileName>Model\Coin.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CryptoTracker.View.AddCrypto">
+    <Position X="6" Y="1.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAABADABAIAgAAAAAAAAAAAIAA=</HashCode>
+      <FileName>View\AddCrypto.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Coin" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CryptoTracker.View.SwapCrypto">
+    <Position X="16.5" Y="2.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>BAgCAAAAgBAAAgoAIAAIAAAEgIAAAAgABAAAAgAAIAA=</HashCode>
+      <FileName>View\SwapCrypto.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FromCoin" />
+      <Property Name="ToCoin" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CryptoTracker.ViewModel.MainViewModel">
+    <Position X="7.75" Y="10.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAQAAAAERAqgBgBCABgAAUQAAgBBAAAAIAAAA=</HashCode>
+      <FileName>ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Coin" />
+      <Property Name="Transaction" />
+      <Property Name="Service" />
+      <Property Name="AddToPortfolioCommand" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CryptoTracker.Data.Command&lt;T&gt;">
+    <Position X="3.5" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Command.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CryptoTracker.Data.AppDbContext">
+    <Position X="16.5" Y="8.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\AppDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoTracker.Model.Transaction">
+    <Position X="13" Y="10.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAA=</HashCode>
+      <FileName>Model\Transaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CryptoTracker.Service.CoinGeckoService">
+    <Position X="16.75" Y="11.25" Width="5.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="CryptoTracker.Service.CoinGeckoService.CoinMarketDto">
+        <TypeIdentifier>
+          <NewMemberFileName>Service\CoinGeckService.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gACAAAAAICAAAEBAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\CoinGeckService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Coin" />
+      <Property Name="Transaction" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CryptoTracker.MainWindow">
+    <Position X="6.75" Y="6" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AASEAAAAAAAAACAAAAAABAAAAAAAAAAAgAAABAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_vm" />
+      <Property Name="Coin" />
+      <Property Name="Transaction" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
